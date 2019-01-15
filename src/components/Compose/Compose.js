@@ -8,7 +8,7 @@ import './Compose.css';
 export default class Compose extends Component {
   constructor() {
     super();
-    
+
     this.state = {
       text: ''
     };
@@ -22,6 +22,7 @@ export default class Compose extends Component {
 
   createPost() {
 
+    this.setState()
   }
 
   render() {
@@ -45,7 +46,7 @@ export default class Compose extends Component {
         </div>
 
         <div className="Compose__bottom">
-          <button onClick={ this.createPost }>Compose</button>
+          <button onClick={ () => this.props.createPostFn(text) }>Compose</button>
         </div>
       </section>
     )

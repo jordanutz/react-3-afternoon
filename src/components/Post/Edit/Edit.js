@@ -24,8 +24,11 @@ export default class Edit extends Component {
   }
 
   render() {
+
+    console.log(this.props)
+    console.log(this.state)
     // More destructuring!
-    const { hideEdit } = this.props;
+    const { hideEdit, id } = this.props;
     const { text } = this.state;
 
     return (
@@ -36,16 +39,16 @@ export default class Edit extends Component {
 
         <div className="Edit__controls">
           {/* This saves your changes made */}
-          <button id="Edit__controls-update" 
+          <button id="Edit__controls-update"
                   className="Edit__control-btn"
-                  onClick={ this.updatePost }>
+                  onClick={() => this.props.updatePostFn(id, text) }>
             Update
           </button>
 
           {/* This cancels the edit mode and does not save changes. Remember the "hideEdit" method was passed down through props */}
           <button id="Edit__controsl-cancel"
                   className="Edit__control-btn"
-                  onClick={ hideEdit }>
+                  onClick={ () => this.hideEdit() }>
             Cancel
           </button>
         </div>
